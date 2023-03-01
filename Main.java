@@ -1,28 +1,21 @@
-package structural;
+package creational.abstractfactory;
 
+public class Main{
+    public static void main(String[] args) {
+        abstractFactory shapeFactory = FactoryProducer.getFactory("Shape");
 
-    public class Main {
-        public static void main(String[] args) {
-            SmartPhone iPhone = SmartPhoneFactory.getInstance(
-                    "IPhone",
-                    "IPhone 14 Pro");
-            SmartPhone samsung = SmartPhoneFactory.getInstance(
-                    "Samsung",
-                    "Galaxy S9"
-            );
-            SmartPhone huawei = SmartPhoneFactory.getInstance(
-                    "Huawei",
-                    "P90"
-            );
+        IShape circle = shapeFactory.getShape("Circle");
+        circle.drawShape();
 
-            System.out.println(iPhone);
-            System.out.println(samsung);
-            System.out.println(huawei);
+        IShape rectangle = shapeFactory.getShape("Rectangle");
+        rectangle.drawShape();
 
-            System.out.println(iPhone.getClass());
-            System.out.println(samsung.getClass());
-            System.out.println(huawei.getClass());
-            System.out.println(iPhone.getClass() == samsung.getClass());
+        IShape triangle = shapeFactory.getShape("Triangle");
+        triangle.drawShape();
 
-        }
+        IShape ellipse = shapeFactory.getShape("Ellipse");
+        ellipse.drawShape();
+
+        System.out.println(circle.getClass());
     }
+
